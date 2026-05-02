@@ -40,6 +40,14 @@ public class TopicController {
         return ResponseEntity.ok(topicService.findBySubject(auth.getName(), subjectId));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<TopicResponse> findById(
+            Authentication auth,
+            @PathVariable UUID id
+    ) {
+        return ResponseEntity.ok(topicService.findById(auth.getName(), id));
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<TopicResponse> update(
             Authentication auth,

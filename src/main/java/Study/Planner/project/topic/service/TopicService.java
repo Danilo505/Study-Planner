@@ -45,6 +45,10 @@ public class TopicService {
                 .stream().map(this::toResponse).toList();
     }
 
+    public TopicResponse findById(String email, UUID id) {
+        return toResponse(findOwnedTopic(email, id));
+    }
+
     public TopicResponse update(String email, UUID id, UpdateTopicRequest request) {
         Topic topic = findOwnedTopic(email, id);
 
