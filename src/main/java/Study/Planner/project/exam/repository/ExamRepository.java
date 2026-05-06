@@ -20,4 +20,16 @@ public interface ExamRepository extends JpaRepository<Exam, UUID> {
     List<Exam> findAllBySubjectIdAndUserEmailOrderByExamDateAsc(UUID subjectId, String email);
 
     Optional<Exam> findByIdAndUserEmail(UUID id, String email);
+
+    Long countByUserEmail(String email);
+
+    Long countByUserEmailAndExamDateGreaterThanEqual(
+            String email,
+            LocalDate date
+    );
+
+    Optional<Exam> findFirstByUserEmailAndExamDateGreaterThanEqualOrderByExamDateAsc(
+            String email,
+            LocalDate date
+    );
 }

@@ -16,4 +16,10 @@ public interface TopicRepository extends JpaRepository<Topic, UUID> {
     List<Topic> findAllBySubjectUserEmailAndCompletedFalse(String email);
 
     Optional<Topic> findByIdAndSubjectUserEmail(UUID id, String email);
+
+    Long countBySubjectUserEmail(String email);
+
+    Long countBySubjectUserEmailAndCompletedTrue(String email);
+
+    Long countBySubjectUserEmailAndCompletedFalse(String email);
 }

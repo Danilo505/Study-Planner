@@ -18,4 +18,10 @@ public interface StudySessionRepository extends JpaRepository<StudySession, UUID
     );
 
     Optional<StudySession> findByIdAndStudyPlanUserEmail(UUID id, String email);
+
+    Long countByStudyPlanUserEmailAndCompletedTrue(String email);
+
+    Long countByStudyPlanUserEmailAndCompletedFalse(String email);
+
+    List<StudySession> findAllByStudyPlanUserEmail(String email);
 }

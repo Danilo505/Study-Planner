@@ -16,4 +16,6 @@ public interface SubjectRepository extends JpaRepository<Subject, UUID> {
     boolean existsByNameIgnoreCaseAndUserEmail(String name, String email);
 
     boolean existsByNameIgnoreCaseAndUserEmailAndIdNot(String name, String email, UUID id);
+
+    Long countByUserEmail(String email);
 }
