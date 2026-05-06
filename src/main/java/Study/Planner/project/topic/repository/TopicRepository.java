@@ -13,5 +13,7 @@ public interface TopicRepository extends JpaRepository<Topic, UUID> {
 
     List<Topic> findAllBySubjectIdAndSubjectUserEmail(UUID subjectId, String email);
 
+    List<Topic> findAllBySubjectUserEmailAndCompletedFalse(String email);
+
     Optional<Topic> findByIdAndSubjectUserEmail(UUID id, String email);
 }
